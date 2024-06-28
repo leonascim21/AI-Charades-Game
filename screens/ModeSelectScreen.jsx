@@ -7,7 +7,7 @@ const ModeSelectScreen = ({navigation}) => {
             <Text>Custom Theme</Text> 
         </TouchableOpacity>
 
-        <TouchableOpacity> 
+        <TouchableOpacity onPress={() => navigation.navigate('Curated Themes')}> 
             <Text>Curated Themes</Text> 
         </TouchableOpacity>
     </SafeAreaView>
