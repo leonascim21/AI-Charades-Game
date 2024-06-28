@@ -3,7 +3,7 @@ import { StyleSheet, Text, SafeAreaView,TouchableOpacity } from 'react-native';
 const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity> 
+      <TouchableOpacity onPress={() => navigation.navigate('Mode Select')}> 
             <Text>Play</Text> 
         </TouchableOpacity>
     </SafeAreaView>
