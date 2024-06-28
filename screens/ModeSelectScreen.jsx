@@ -1,4 +1,4 @@
-import { SafeAreaView, Button, StyleSheet, TouchableOpacity, Text } from 'react-native'
+import { SafeAreaView, StyleSheet, TouchableOpacity, Text } from 'react-native'
 
 const ModeSelectScreen = ({navigation}) => {
   return (
