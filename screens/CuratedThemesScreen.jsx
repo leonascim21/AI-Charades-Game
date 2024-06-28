@@ -1,4 +1,5 @@
 import { Button, Image, SafeAreaView, StyleSheet } from "react-native";
+import {wordList1} from "../CuratedWordLists";
 
 const CuratedThemesScreen = ({ navigation }) => {
   return (
@@ -10,7 +11,8 @@ const CuratedThemesScreen = ({ navigation }) => {
             uri: "https://picsum.photos/100"
             }}
         ></Image>
-        <Button title="pirates"/>
+        <Button title="pirates" 
+                onPress={() => navigation.navigate('Game', { wordList1 })}/>
     </SafeAreaView>
   );
 };
