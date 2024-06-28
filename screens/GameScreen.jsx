@@ -2,6 +2,7 @@ import { useState } from "react";
 import React, { useEffect } from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Platform, StatusBar  } from "react-native";
 import * as ScreenOrientation from 'expo-screen-orientation';
+import Timer from "../components/Timer";
 
 const GameScreen = ({ route, navigation }) => {
     const { wordList } = route.params;
@@ -35,19 +36,25 @@ const GameScreen = ({ route, navigation }) => {
         setWord(getWord(list));
     };
 
+    const handleTimeUp = () => {
+        navigation.navigate('Results', { points });
+    };
 
     return (
         <SafeAreaView style={styles.container}>
-            <TouchableOpacity onPress={handlePressCorrect} style={styles.CorrectCircle}>
+            <TouchableOpacity onPress={handlePressCorrect} style={styles.correctCircle}>
                 <View>
                     <Text style={styles.correctText}>Correct</Text>
                 </View>
             </TouchableOpacity>
-            <TouchableOpacity onPress={handlePressPass} style={styles.PassCircle}>
+            <TouchableOpacity onPress={handlePressPass} style={styles.passCircle}>
                 <View>
                     <Text style={styles.passText}>Pass</Text>
                 </View>
             </TouchableOpacity>
+            <View style={styles.timerContainer}>
+                <Timer onTimeUp={handleTimeUp}/>
+            </View>
             <View style={styles.wordContainer}>
                 <Text style={styles.wordText}>{word}</Text>
             </View>
@@ -63,7 +70,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
-    CorrectCircle: {
+    correctCircle: {
         position: 'absolute',
         left: -100,
         width: 400,
@@ -74,7 +81,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    PassCircle: {
+    passCircle: {
         position: 'absolute',
         right: -100,
         width: 400,
@@ -94,6 +101,11 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         opacity: 1,
+    },
+    timerContainer: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     wordContainer: {
         flex: 2,
