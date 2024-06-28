@@ -1,18 +1,17 @@
-import { Button, Image, SafeAreaView, StyleSheet } from "react-native";
-import {wordList1} from "../CuratedWordLists";
+import { SafeAreaView, StyleSheet } from "react-native";
+import {wordList1, wordList2, wordList3} from "../CuratedWordLists";
+import CuratedThemeCard from "../components/CuratedThemeCard";
+
 
 const CuratedThemesScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
-         <Image
-            source={{
-            width: 100,
-            height: 100,
-            uri: "https://picsum.photos/100"
-            }}
-        ></Image>
-        <Button title="pirates" 
-                onPress={() => navigation.navigate('Game', { wordList1 })}/>
+      <CuratedThemeCard wordList={wordList1} navigation={navigation}
+        title="Pirates" picture="https://picsum.photos/100"/>
+      <CuratedThemeCard wordList={wordList2} navigation={navigation}
+        title="Warriors" picture="https://picsum.photos/100"/>
+      <CuratedThemeCard wordList={wordList3} navigation={navigation}
+        title="Pacers" picture="https://picsum.photos/100"/>
     </SafeAreaView>
   );
 };

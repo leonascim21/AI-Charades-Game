@@ -3,8 +3,8 @@ import React from "react";
 import { SafeAreaView, StyleSheet, Text, TouchableOpacity} from "react-native";
 
 const GameScreen = ({ route, navigation }) => {
-    const { wordList1 } = route.params;
-    const initialList = wordList1 || ["No more words!"];
+    const { wordList } = route.params;
+    const initialList = wordList || ["No more words!"];
     const [list, setList] = useState(initialList);
     const [word, setWord] = useState(initialList[0]);
 
