@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, View, Text, Button, TouchableOpacity } from "react-native";
+import { SafeAreaView, StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import {
   animals,
   accents,
@@ -19,12 +19,11 @@ const CuratedThemesScreen = ({ navigation }) => {
     return () => { ScreenOrientation.unlockAsync()};
   }, []);
 
-  const handleBackPress = () => {
-    navigation.navigate('Mode Select');
-  }
-
   return (
     <SafeAreaView style={styles.container}>
+      <TouchableOpacity style={styles.backButton} onPress={() => navigation.navigate('Mode Select')}>
+        <Text style={styles.backButtonText}>Back</Text>
+      </TouchableOpacity>
       <Text style={styles.title}>Curated Themes</Text>
 
       <View style={styles.row}>
@@ -53,10 +52,6 @@ const CuratedThemesScreen = ({ navigation }) => {
         <CuratedThemeCard wordList={professions} navigation={navigation}
           title="Professions" picture={require('../assets/CuratedThemeIcons/professions.webp')}/>
       </View>
-
-      <TouchableOpacity onPress={handleBackPress}>
-        <Text>Back</Text>
-      </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -66,18 +61,34 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#A0CAF0',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    padding: 20,
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     marginVertical: 15,
-    width: '90%'
+    width: '100%',
   },
   title: {
     fontWeight: 'bold',
-    fontSize: 24
-  }
+    fontSize: 24,
+    marginBottom: 20,
+  },
+  backButton: {
+    position: 'absolute',
+    top: 40,
+    left: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    backgroundColor: '#FFD700',
+    borderRadius: 10,
+  },
+  backButtonText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#000',
+  },
 });
 
 export default CuratedThemesScreen;
