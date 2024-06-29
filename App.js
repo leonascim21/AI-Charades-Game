@@ -17,7 +17,7 @@ export default function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={HomeScreen} options={noHeader}/>
-        <Stack.Screen name="Mode Select" component={ModeSelectScreen} />
+        <Stack.Screen name="Mode Select" component={ModeSelectScreen} options={noHeader}/>
         <Stack.Screen name="Curated Themes" component={CuratedThemesScreen} options={noHeader} />
         <Stack.Screen name='Custom Theme' component={CustomThemeScreen} />
         <Stack.Screen name="Game" component={GameScreen} options={noHeader}/>
