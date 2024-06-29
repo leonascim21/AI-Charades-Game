@@ -1,6 +1,6 @@
 import { useState } from "react";
 import React, { useEffect } from "react";
-import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View, Platform, StatusBar  } from "react-native";
+import { SafeAreaView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import * as ScreenOrientation from 'expo-screen-orientation';
 import Timer from "../components/Timer";
 
@@ -10,6 +10,8 @@ const GameScreen = ({ route, navigation }) => {
     const [list, setList] = useState(initialList);
     const [points, setPoints] = useState(0);
     const [word, setWord] = useState(initialList[0]);
+    const [correctWords, setCorrectWords] = useState([]);
+    const [passedWords, setPassedWords] = useState([]);
 
     useEffect(() => {
         ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE);
@@ -28,16 +30,20 @@ const GameScreen = ({ route, navigation }) => {
     const handlePressCorrect = () => {
         if (word !== "No more words!") {
             setPoints(points + 1);
+            setCorrectWords([...correctWords, word]);
         }
         setWord(getWord(list));
     };
 
     const handlePressPass = () => {
+        if (word !== "No more words!") {
+            setPassedWords([...passedWords, word]);
+        }
         setWord(getWord(list));
     };
 
     const handleTimeUp = () => {
-        navigation.navigate('Results', { points });
+        navigation.navigate('Results', { points, correctWords, passedWords });
     };
 
     return (
