@@ -24,7 +24,7 @@ const ModeSelectScreen = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#fff',
+      backgroundColor: '#A0CAF0',
       alignItems: 'center',
       justifyContent: 'center',
     },
