@@ -21,7 +21,7 @@ export default function App() {
         <Stack.Screen name="Curated Themes" component={CuratedThemesScreen} options={noHeader} />
         <Stack.Screen name='Custom Theme' component={CustomThemeScreen} options={noHeader}/>
         <Stack.Screen name="Game" component={GameScreen} options={noHeader}/>
-        <Stack.Screen name='Results' component={ResultsScreen} />
+        <Stack.Screen name='Results' component={ResultsScreen} options={noHeader}/>
       </Stack.Navigator>
     </NavigationContainer>
   );
