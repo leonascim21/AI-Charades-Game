@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
-const Timer = ({onTimeUp}) => {
-    const [seconds, setSeconds] = useState(10);
+const Timer = ({onTimeUp, time}) => {
+    const [seconds, setSeconds] = useState(time);
 
     useEffect(() => {
         let interval = null;

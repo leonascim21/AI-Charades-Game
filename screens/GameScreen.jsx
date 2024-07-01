@@ -59,7 +59,7 @@ const GameScreen = ({ route, navigation }) => {
                 </View>
             </TouchableOpacity>
             <View style={styles.timerContainer}>
-                <Timer onTimeUp={handleTimeUp}/>
+                <Timer onTimeUp={handleTimeUp} time={60}/>
             </View>
             <View style={styles.wordContainer}>
                 <Text style={styles.wordText}>{word}</Text>
